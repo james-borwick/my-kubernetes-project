@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+spec:
+  selector:
+    matchLabels:
+      app: hello-world
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: my-go-app
+        image: jborwick/my-app
+        ports:
+        - containerPort: 8080
